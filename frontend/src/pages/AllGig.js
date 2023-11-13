@@ -12,7 +12,7 @@ export default function () {
     const [allgigs, setallgigs] = useState('');
 
     function getdata() {
-        axios.get('${backend_url}/categories').then((e) => {
+        axios.get(`${backend_url}/categories`).then((e) => {
             setcategory(e.data);
 
         })

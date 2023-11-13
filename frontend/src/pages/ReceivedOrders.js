@@ -9,10 +9,12 @@ import { auth } from '../Firebase';
 
 
 export default function ReceivedOrders() {
+    const backend_url='https://freelancerapp-wdtf.onrender.com';
+    
     const [receivedorders, setreceivedorders] = useState();
     const[user,loading]=useAuthState(auth);
     useEffect(() => {
-        axios.get(`http://localhost:5000/receivedorders/${user.accessToken}`).then((e) => {
+        axios.get(`${backend_url}/receivedorders/${user.accessToken}`).then((e) => {
             setreceivedorders(e.data);
         })
     })

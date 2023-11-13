@@ -6,12 +6,14 @@ import Select from 'react-select';
 import { auth } from '../Firebase';
 
 export default function ({ gigid, seller_uid }) {
+    const backend_url='https://freelancerapp-wdtf.onrender.com';
+    
     const [order_description, set_order_description] = useState();
     const navigate = useNavigate();
     const[user,loading]=useAuthState(auth);
     function createOrder(e) {
         e.preventDefault();
-        axios.post(`http://localhost:5000/createOrder/${user.accessToken}`, {
+        axios.post(`${backend_url}/createOrder/${user.accessToken}`, {
             "gigid": gigid,
             "seller": seller_uid,
             "date": Date.now(),

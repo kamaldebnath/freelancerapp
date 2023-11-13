@@ -8,6 +8,9 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 export default function Join() {
+
+  const backend_url='https://freelancerapp-wdtf.onrender.com';
+  
   const [user, loading] = useAuthState(auth);
   const navigate=useNavigate();
 
@@ -15,7 +18,7 @@ export default function Join() {
     try {
       const result = await signInWithPopup(auth, new GoogleAuthProvider());
       localStorage.setItem('token',result.user.accessToken);
-      axios.post(`http://localhost:5000/user_update/${result.user.accessToken}`,{
+      axios.post(`${backend_url}/user_update/${result.user.accessToken}`,{
         'name': result.user.displayName,
         'picture': result.user.photoURL,
         'email': result.user.email,

@@ -7,6 +7,8 @@ import { signOut } from 'firebase/auth';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 export default function Navbar() {
+  const backend_url='https://freelancerapp-wdtf.onrender.com';
+  
   const [user, loading] = useAuthState(auth);
   const navigate = useNavigate();
 

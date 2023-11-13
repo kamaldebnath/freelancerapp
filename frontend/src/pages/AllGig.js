@@ -5,16 +5,19 @@ import GigCard from './GigCard';
 import Select from 'react-select'
 
 export default function () {
+
+    const backend_url='https://freelancerapp-wdtf.onrender.com';
+    
     const [category, setcategory] = useState();
     const [selected_cat, set_selected_cat] = useState();
     const [allgigs, setallgigs] = useState('');
 
     function getdata() {
-        axios.get('http://localhost:5000/categories').then((e) => {
+        axios.get('${backend_url}/categories').then((e) => {
             setcategory(e.data);
 
         })
-        axios.get(`http://localhost:5000/allgigs`).then((e) => {
+        axios.get(`${backend_url}/allgigs`).then((e) => {
             setallgigs(e.data);
         })
     }

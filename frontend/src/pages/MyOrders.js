@@ -7,11 +7,13 @@ import { auth } from '../Firebase';
 
 export default function MyOrders() {
 
+    const backend_url='https://freelancerapp-wdtf.onrender.com';
+    
     const[user,loading]=useAuthState(auth);
     const [myorders, setmyorders] = useState();
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/myorders/${user.accessToken}`).then((e) => {
+        axios.get(`${backend_url}/myorders/${user.accessToken}`).then((e) => {
             setmyorders(e.data);
         })
     })

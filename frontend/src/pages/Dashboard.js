@@ -11,26 +11,26 @@ import EditDashboard from '../Cards/EditDashboard';
 
 export default function Dashboard() {
 
+    const backend_url='https://freelancerapp-wdtf.onrender.com';
+
     const uid = useParams();
     const [user, loading] = useAuthState(auth);
     const [displayName, setdisplayName] = useState();
     const [email, setEmail] = useState();
     const [img, setimg] = useState();
     const [about, setAbout] = useState();
-
     const [mygigs, setmygigs] = useState('');
-
     const [showUpdate, setShowUpdate] = useState(false);
 
     function getdata() {
-        axios.get(`http://localhost:5000/userdata/${uid.id}`).then((userdata) => {
+        axios.get(`${backend_url}/userdata/${uid.id}`).then((userdata) => {
             setEmail(userdata.data.email);
             setdisplayName(userdata.data.name);
             setimg(userdata.data.picture);
             setAbout(userdata.data.about);
         })
 
-        axios.get(`http://localhost:5000/mygigs/${uid.id}`).then((mygigsdata) => {
+        axios.get(`${backend_url}/mygigs/${uid.id}`).then((mygigsdata) => {
             setmygigs(mygigsdata.data);
         })
     }

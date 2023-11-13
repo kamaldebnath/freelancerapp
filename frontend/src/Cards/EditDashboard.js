@@ -3,10 +3,13 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 function EditDashboard({user,uid,about}) {
+
+    const backend_url='https://freelancerapp-wdtf.onrender.com';
+
     const [newAbout, setNewAbout] = useState();
     async function updateUserData(e) {
         e.preventDefault();
-        await axios.patch(`http://localhost:5000/update_userdata/${user.accessToken}/${uid.id}`,{
+        await axios.patch(`${backend_url}/update_userdata/${user.accessToken}/${uid.id}`,{
             'about':newAbout
         }).then((e) => {
             console.log(e.data);

@@ -8,6 +8,9 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../Firebase';
 
 export default function Chat() {
+
+    const backend_url='https://freelancerapp-wdtf.onrender.com';
+    
     const orderid = useParams();
     const [user,loading]=useAuthState(auth);
     const [msg, setmsg] = useState();
@@ -15,7 +18,7 @@ export default function Chat() {
 
     function handleChat(e) {
         e.preventDefault();
-        axios.post(`http://localhost:5000/chat/${user.accessToken}`, {
+        axios.post(`${backend_url}/chat/${user.accessToken}`, {
             "orderid": orderid.order_id,
             "date": Date.now(),
             "message": msg
@@ -26,7 +29,7 @@ export default function Chat() {
     }
 
     function getchatdata(e) {
-        axios.get(`http://localhost:5000/chatdata/${user.accessToken}/${orderid.order_id}`).then((e) => {
+        axios.get(`${backend_url}/chatdata/${user.accessToken}/${orderid.order_id}`).then((e) => {
             setallmessages(e.data);
         })
     }

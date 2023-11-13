@@ -11,11 +11,14 @@ import { getDownloadURL, uploadBytes } from 'firebase/storage';
 import { ref } from 'firebase/storage';
 
 export default function Gig() {
+
+    const backend_url='https://freelancerapp-wdtf.onrender.com';
+    
     const navigate = useNavigate();
     const [user, loading] = useAuthState(auth)
     const [category, setcategory] = useState([]);
     useEffect(() => {
-        axios.get('http://localhost:5000/categories').then((e) => {
+        axios.get(`${backend_url}/categories`).then((e) => {
             setcategory(e.data);
 
         })
@@ -58,7 +61,7 @@ export default function Gig() {
             const ImageRef = ref(storage, `images/${imageFile.name}`);
             await uploadBytes(ImageRef,imageFile);
             await getDownloadURL(ImageRef).then((img_url) => {
-                axios.post(`http://localhost:5000/creategig/${user.accessToken}`, {
+                axios.post(`${backend_url}/creategig/${user.accessToken}`, {
                     'title': gig_title,
                     'description': gig_description,
                     'gigcategory': gig_category.value,

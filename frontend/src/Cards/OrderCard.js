@@ -7,6 +7,9 @@ import PaidIcon from '@mui/icons-material/Paid';
 
 
 function OrderCard({ order_id, gigid, date, description, seller }) {
+
+    const backend_url='https://freelancerapp-wdtf.onrender.com';
+
     const [gigdata, setgigdata] = useState([]);
     const [seller_info, set_seller_info] = useState([]);
 
@@ -14,7 +17,7 @@ function OrderCard({ order_id, gigid, date, description, seller }) {
 
     function getGigdata() {
         if (gigdata) {
-            axios.get(`http://localhost:5000/gigsbyid/${gigid}`).then((e) => {
+            axios.get(`${backend_url}/gigsbyid/${gigid}`).then((e) => {
                 setgigdata(e.data[0]);
             });
         }
@@ -22,7 +25,7 @@ function OrderCard({ order_id, gigid, date, description, seller }) {
 
     function getSellerdata() {
         if (seller) {
-            axios.get(`http://localhost:5000/userdata/${seller}`).then((e) => {
+            axios.get(`${backend_url}/userdata/${seller}`).then((e) => {
                 set_seller_info(e.data);
             });
         }

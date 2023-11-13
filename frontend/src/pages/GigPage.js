@@ -7,6 +7,9 @@ import EastIcon from '@mui/icons-material/East';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 
 export default function GigPage() {
+
+    const backend_url='https://freelancerapp-wdtf.onrender.com';
+    
     const { gigid } = useParams();
     const [giginfo, setgiginfo] = useState([]);
     const [seller_info, set_seller_info] = useState({});
@@ -14,7 +17,7 @@ export default function GigPage() {
     const [openorder, setopenorder] = useState(false);
 
     async function getdata() {
-        axios.get(`http://localhost:5000/gigsbyid/${gigid}`).then((e) => {
+        axios.get(`${backend_url}/gigsbyid/${gigid}`).then((e) => {
             setgiginfo(e.data[0]);
         })
 
@@ -23,7 +26,7 @@ export default function GigPage() {
     useEffect(() => {
         getdata();
         if (giginfo.seller_uid) {
-            axios.get(`http://localhost:5000/userdata/${giginfo.seller_uid}`).then((e) => {
+            axios.get(`${backend_url}/userdata/${giginfo.seller_uid}`).then((e) => {
                 set_seller_info(e.data);
             })
         }

@@ -4,11 +4,13 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../Firebase';
 
 function ChatCard({ sender, date, message }) {
+  const backend_url='https://freelancerapp-wdtf.onrender.com';
+
   const [sender_data, set_sender_data] = useState({});
   const[user,loading]=useAuthState(auth);
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/userdata/${sender}`).then((e) => {
+    axios.get(`${backend_url}/userdata/${sender}`).then((e) => {
       set_sender_data(e.data);
     })
   }, [])

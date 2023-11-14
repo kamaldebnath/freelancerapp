@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 function EditDashboard({user,uid,about}) {
 
     const backend_url='https://freelancerapp-wdtf.onrender.com';
-
+    const navigate=useNavigate();
     const [newAbout, setNewAbout] = useState();
     async function updateUserData(e) {
         e.preventDefault();

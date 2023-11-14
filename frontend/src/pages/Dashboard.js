@@ -52,11 +52,16 @@ export default function Dashboard() {
                         <div>
                             <p className='text-xl'>{displayName}</p>
                         </div>
-                        <div className={`${user.uid === uid.id ? '' : 'hidden'}`}>
-                            <div className='flex justify-center items-center'>
-                                <button onClick={() => setShowUpdate(true)} className='font-semibold'><span className='flex justify-center items-center'><EditIcon /> Edit bio</span></button>
-                            </div>
-                        </div>
+                        {
+                            user && (
+                                <div className={`${user.uid === uid.id ? '' : 'hidden'}`}>
+                                    <div className='flex justify-center items-center'>
+                                        <button onClick={() => setShowUpdate(true)} className='font-semibold'><span className='flex justify-center items-center'><EditIcon /> Edit bio</span></button>
+                                    </div>
+                                </div>
+                            )
+                        }
+
 
                     </div>
 
@@ -98,16 +103,16 @@ export default function Dashboard() {
                 <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3'>
                     {mygigs && (
                         mygigs.map((items) =>
-                        (
-                            <GigCard
-                                gigid={items._id}
-                                seller_uid={items.seller_uid}
-                                title={items.title}
-                                description={items.description}
-                                deadline={items.deadline}
-                                price={items.price}
-                                thumbnail={items.thumbnail}
-                            />)
+                            (
+                                <GigCard
+                                    gigid={items._id}
+                                    seller_uid={items.seller_uid}
+                                    title={items.title}
+                                    description={items.description}
+                                    deadline={items.deadline}
+                                    price={items.price}
+                                    thumbnail={items.thumbnail}
+                                />)
                         )
                     )}
 

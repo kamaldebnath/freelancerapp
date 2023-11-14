@@ -16,7 +16,7 @@ export default function Landing() {
             <Navbar />
 
 
-            <div>
+            <div className={'z-0'}>
                 <AllGig/>
             </div>
         </div>

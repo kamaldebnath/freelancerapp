@@ -40,15 +40,15 @@ export default function Join() {
   })
 
   return (
-    <div className='bg-green-200 h-screen flex justify-center items-center'>
+    <div className='h-screen flex justify-center items-center'>
       {!user && (
         <div>
-          <button className='flex space-x-2 bg-white p-3 rounded-full' onClick={google_login}>
+          <button className='flex justify-around space-x-2 w-[30vh] bg-sky-400 p-3 rounded-full' onClick={google_login}>
             <div>
               <GoogleIcon />
             </div>
-            <div>
-              join
+            <div className='font-semibold'>
+              Sign in with Google
             </div>
 
           </button>

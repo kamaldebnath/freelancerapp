@@ -1,9 +1,9 @@
-import React, {useState} from 'react'
-import {Link, useNavigate} from 'react-router-dom'
-import {useAuthState} from 'react-firebase-hooks/auth';
-import {auth} from '../Firebase';
-import {signOut} from 'firebase/auth';
-import {motion} from 'framer-motion'
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from '../Firebase';
+import { signOut } from 'firebase/auth';
+import { motion } from 'framer-motion'
 
 
 export default function Navbar() {
@@ -43,17 +43,13 @@ export default function Navbar() {
 
                     <div className='scale-150 flex'>
                         <Link to={`/u/${user.uid}`}><img className='w-[4vh] rounded-full'
-                                                         src={user.photoURL}></img></Link>
-
+                            src={user.photoURL}></img></Link>
 
                     </div>
 
                     <button className='bg-green-400 p-2 hidden md:flex' onClick={logout}>log out</button>
                 </div>
             )}
-
-
-
 
         </div>
 

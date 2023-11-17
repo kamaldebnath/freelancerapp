@@ -11,7 +11,7 @@ import EditDashboard from '../Cards/EditDashboard';
 
 export default function Dashboard() {
 
-    const backend_url='https://freelancerapp-wdtf.onrender.com';
+    const backend_url = 'https://freelancerapp-wdtf.onrender.com';
 
     const uid = useParams();
     const [user, loading] = useAuthState(auth);
@@ -103,16 +103,16 @@ export default function Dashboard() {
                 <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3'>
                     {mygigs && (
                         mygigs.map((items) =>
-                            (
-                                <GigCard
-                                    gigid={items._id}
-                                    seller_uid={items.seller_uid}
-                                    title={items.title}
-                                    description={items.description}
-                                    deadline={items.deadline}
-                                    price={items.price}
-                                    thumbnail={items.thumbnail}
-                                />)
+                        (
+                            <GigCard
+                                gigid={items._id}
+                                seller_uid={items.seller_uid}
+                                title={items.title}
+                                description={items.description}
+                                deadline={items.deadline}
+                                price={items.price}
+                                thumbnail={items.thumbnail}
+                            />)
                         )
                     )}
 

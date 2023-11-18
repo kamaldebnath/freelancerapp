@@ -42,7 +42,7 @@ const UserSchema = mongoose.Schema({
   about: String,
   gender:String,
   age:Number,
-  gitgub:String,
+  github:String,
   linkedin:String,
 })
 

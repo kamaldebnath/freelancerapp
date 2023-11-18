@@ -24,7 +24,11 @@ export default function Join() {
         'email': result.user.email,
         'email_verified': result.user.emailVerified,
         'uid': result.user.uid,
-        'about':''
+        'about':'',
+        'age':'',
+        'gender':'',
+        'github':'',
+        'linkedin':''
       }).then((e)=>{console.log(e)});
 
     } catch (error) {

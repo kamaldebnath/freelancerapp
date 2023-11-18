@@ -28,7 +28,7 @@ export default function Navbar() {
 
         <div className='h-20 bg-gray-100 flex justify-around items-center p-4 border'>
 
-            <div className='text-2xl transition duration-500 hover:scale-105'>
+            <div className='text-2xl font-semibold transition duration-500 hover:scale-105'>
                 <a href='/'>Freelancer</a>
             </div>
 
@@ -42,12 +42,12 @@ export default function Navbar() {
                 <div className='flex items-center space-x-9'>
 
                     <div className='scale-150 flex'>
-                        <Link to={`/u/${user.uid}`}><img className='w-[4vh] rounded-full'
+                        <Link to={`/u/${user.uid}`}><img className='w-[4vh] rounded-full border-2 border-green-400'
                             src={user.photoURL}></img></Link>
 
                     </div>
 
-                    <button className='bg-green-400 p-2 hidden md:flex' onClick={logout}>log out</button>
+                    <button className='bg-green-400 p-2 hidden md:flex font-semibold' onClick={logout}>log out</button>
                 </div>
             )}
 

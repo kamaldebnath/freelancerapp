@@ -103,7 +103,7 @@ app.patch('/update_userdata/:token/:uid', (req, res) => {
       if (response.uid == req.params.uid) {
         UserModel.find({ uid: response.uid }).then(async (data) => {
           data[0] ?
-            UserModel.findByIdAndUpdate(data[0]._id, { 'about': req.body.about }, { new: true }, function (err, docs) {
+            UserModel.findByIdAndUpdate(data[0]._id,req.body, { new: true }, function (err, docs) {
               if (err) {
                 res.json(err);
               }

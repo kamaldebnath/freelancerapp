@@ -44,19 +44,22 @@ export default function Dashboard() {
             <Navbar />
 
             <div className='flex flex-col justify-center items-center gap-4 my-2'>
-                <div className='grid grid-cols-1 md:grid-cols-2 w-2/3 gap-2'>
-                    <div className='flex flex-col justify-center items-center p-9 space-y-4 border shadow'>
+                <div className='grid grid-cols-1 md:grid-cols-2 w-4/5 gap-2'>
+                    <div className='flex flex-col justify-center items-center p-9 space-y-4 border shadow rounded-xl'>
                         <div>
                             <img className='rounded-full' src={img}></img>
                         </div>
                         <div>
                             <p className='text-xl'>{displayName}</p>
                         </div>
+                        <div className='break-all'>
+                            <p className=''>{email}</p>
+                        </div>
                         {
                             user && (
                                 <div className={`${user.uid === uid.id ? '' : 'hidden'}`}>
-                                    <div className='flex justify-center items-center'>
-                                        <button onClick={() => setShowUpdate(true)} className='font-semibold'><span className='flex justify-center items-center'><EditIcon /> Edit bio</span></button>
+                                    <div className='flex justify-center items-center bg-lime-400 p-2 rounded-xl'>
+                                        <button onClick={() => {setTimeout(()=>{setShowUpdate(true)},400)}} className='font-semibold'><span className='flex justify-center items-center'><EditIcon /> Edit bio</span></button>
                                     </div>
                                 </div>
                             )
@@ -65,12 +68,15 @@ export default function Dashboard() {
 
                     </div>
 
-                    <div className='border shadow'>
+                    <div className='border shadow rounded-xl'>
                         <div className='p-4'>
-                            {about}
+                            <span className='text-2xl font-semibold'>About me</span>
+                        </div>
+                        <div className='p-4'>
+                            <span>{about}</span>
                         </div>
 
-                        <div className={`${showUpdate ? '' : 'hidden'} flex flex-col gap-y-3 p-2`}>
+                        <div className={`${showUpdate ? '' : 'hidden'} flex flex-col gap-y-3 p-2 fixed inset-0 bg-lime-200 z-10`}>
                             <div>
                                 <EditDashboard
                                     user={user}
@@ -80,7 +86,7 @@ export default function Dashboard() {
                             </div>
 
                             <div>
-                                <button className='font-semibold border rounded-lg p-2' onClick={() => setShowUpdate(false)}>Cancel</button>
+                                <button className='font-semibold border rounded-lg p-2 bg-red-400' onClick={() => setShowUpdate(false)}>Cancel</button>
                             </div>
                         </div>
 

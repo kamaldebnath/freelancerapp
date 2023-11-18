@@ -19,6 +19,12 @@ function EditDashboard({user,uid,about}) {
     return (
         <div>
             <form onSubmit={updateUserData}>
+
+                <div>
+                    
+                </div>
+
+
                 <textarea className='min-w-full p-2 min-h-[40vh] max-h-[40vh] max-w-full outline-none border' value={newAbout} defaultValue={about} onChange={(e) => setNewAbout(e.target.value)}></textarea>
                 <button className='text-white bg-black font-semibold p-2 rounded-lg'>Save</button>
             </form>

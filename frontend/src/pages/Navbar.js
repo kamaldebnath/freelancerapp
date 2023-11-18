@@ -26,15 +26,15 @@ export default function Navbar() {
 
     return (
 
-        <div className='h-20 bg-gray-100 flex justify-around items-center p-4 border'>
+        <div className='h-15 bg-lime-50 flex justify-around items-center p-4'>
 
             <div className='text-2xl font-semibold transition duration-500 hover:scale-105'>
                 <a href='/'>Freelancer</a>
             </div>
 
             {!user && (
-                <div>
-                    <Link to={'/join'} className='bg-green-400 px-3 py-1' href='/join'>JOIN</Link>
+                <div className='animate-bounce'>
+                    <Link to={'/join'} className='border-2 rounded-full border-black px-3 py-1 font-semibold' href='/join'>JOIN</Link>
                 </div>
             )}
 
@@ -42,12 +42,13 @@ export default function Navbar() {
                 <div className='flex items-center space-x-9'>
 
                     <div className='scale-150 flex'>
-                        <Link to={`/u/${user.uid}`}><img className='w-[4vh] rounded-full border-2 border-green-400'
-                            src={user.photoURL}></img></Link>
+
+                        <a href={`/u/${user.uid}`}><img className='w-[4vh] rounded-full border-2 border-lime-400'
+                            src={user.photoURL}></img></a>
 
                     </div>
 
-                    <button className='bg-green-400 p-2 hidden md:flex font-semibold' onClick={logout}>log out</button>
+                    <button className='bg-lime-400 px-3 py-2 border-2 border-black hidden md:flex font-semibold rounded-full' onClick={logout}>log out</button>
                 </div>
             )}
 

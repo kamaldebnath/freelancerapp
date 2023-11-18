@@ -48,15 +48,15 @@ export default function Dashboard() {
 
     useEffect(() => {
         getdata();
-    }, [])
+    })
 
     return (
         <div>
             <Navbar />
 
-            <div className='flex flex-col justify-center items-center gap-4 my-2'>
+            <div className='flex flex-col justify-center items-center gap-4 my-2 font-display'>
                 <div className='grid grid-cols-1 md:grid-cols-2 w-4/5 gap-2'>
-                    <div className='flex flex-col justify-center items-center p-9 space-y-4 border shadow rounded-xl'>
+                    <div className='flex flex-col justify-center items-center p-2 space-y-4 border shadow rounded-xl bg-lime-100'>
                         <div>
                             <img className='rounded-full' src={img}></img>
                         </div>
@@ -64,13 +64,12 @@ export default function Dashboard() {
                             <p className='text-xl font-semibold'>{displayName}</p>
                         </div>
 
-                        <div className='px-4 flex space-x-4'>
+                        <div className='px-4 flex flex-col text-xs md:text-sm lg:text-lg'>
                             <p>Age : {age}</p>
                             <p>Gender : {gender}</p>
-                        </div>
-
-                        <div className='break-all'>
-                            <p className=''>{email}</p>
+                            <div className='break-all'>
+                                <p className=''>Email : {email}</p>
+                            </div>
                         </div>
 
                         <div className='flex justify-center items-center space-x-3'>
@@ -85,7 +84,7 @@ export default function Dashboard() {
                         {
                             user && (
                                 <div className={`${user.uid === uid.id ? '' : 'hidden'}`}>
-                                    <div className='flex justify-center items-center bg-lime-400 p-2 rounded-xl'>
+                                    <div className='flex justify-center items-center bg-lime-400 p-2 rounded-full border-2 border-black'>
                                         <button onClick={() => { setTimeout(() => { setShowUpdate(true) }, 400) }} className='font-semibold'><span className='flex justify-center items-center'><EditIcon /> Edit profile</span></button>
                                     </div>
                                 </div>
@@ -99,12 +98,12 @@ export default function Dashboard() {
                         <div className='p-4'>
                             <span className='text-2xl font-semibold'>About me</span>
                         </div>
-                        
+
                         <div className='p-4'>
-                            <span>{about}</span>
+                            <span className=''>{about}</span>
                         </div>
 
-                        <div className={`${showUpdate ? '' : 'hidden'} flex flex-col justify-start overflow-y-scroll items-center gap-y-3 p-2 fixed inset-0 bg-lime-200 z-10`}>
+                        <div className={`${showUpdate ? '' : 'hidden'} flex flex-col justify-start overflow-y-scroll items-center gap-y-3 p-2 fixed inset-0 bg-white z-10 md:justify-center`}>
                             <div>
                                 <EditDashboard
                                     user={user}
@@ -127,14 +126,23 @@ export default function Dashboard() {
 
                 </div>
 
-                <div className='flex gap-5'>
-                    <div className='bg-black text-white p-2 rounded-lg font-semibold'>
-                        <Link to={'/orders'}>myorders</Link>
-                    </div>
-                    <div className='bg-black text-white p-2 rounded-lg font-semibold'>
-                        <Link to={'/ordersreceived'}>orders received</Link>
-                    </div>
-                </div>
+                {
+                    user && (
+                        <div className={`${user.uid === uid.id ? '' : 'hidden'}`}>
+                            <div className='flex gap-5'>
+                                <div className='bg-black text-white p-2 rounded-lg font-semibold'>
+                                    <Link to={'/orders'}>myorders</Link>
+                                </div>
+                                <div className='bg-black text-white p-2 rounded-lg font-semibold'>
+                                    <Link to={'/ordersreceived'}>orders received</Link>
+                                </div>
+                            </div>
+
+                        </div>
+                    )
+                }
+
+
             </div>
 
             <div className='flex flex-col justify-center items-center'>
@@ -155,18 +163,26 @@ export default function Dashboard() {
                         )
                     )}
 
-                    <div className='p-4'>
-                        <Link to={'/creategig'}>
-                            <div className='w-[30vh] h-[35vh] border rounded-lg flex flex-col justify-center items-center space-y-4'>
-                                <div className=''>
-                                    <AddIcon className='scale-150' />
-                                </div>
-                                <div>
-                                    <span className='font-semibold'>Create a new gig</span>
+
+                    {
+                        user && (
+                            <div className={`${user.uid === uid.id ? '' : 'hidden'}`}>
+                                <div className='p-4'>
+                                    <Link to={'/creategig'}>
+                                        <div className='w-[30vh] h-[35vh] border rounded-lg flex flex-col justify-center items-center space-y-4'>
+                                            <div className=''>
+                                                <AddIcon className='scale-150' />
+                                            </div>
+                                            <div>
+                                                <span className='font-semibold'>Create a new gig</span>
+                                            </div>
+                                        </div>
+                                    </Link>
                                 </div>
                             </div>
-                        </Link>
-                    </div>
+                        )
+                    }
+
 
 
                 </div>

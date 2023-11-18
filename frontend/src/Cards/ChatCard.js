@@ -16,7 +16,7 @@ function ChatCard({ sender, date, message }) {
   }, [])
 
   return (
-    <div className={`border rounded-lg w-[30vh] h-fit p-2 flex flex-col space-y-2 ${user.uid === sender ? 'bg-blue-300' : 'bg-gray-200'}`}>
+    <div className={`border rounded-lg w-[30vh] h-fit p-2 flex flex-col space-y-2 ${user.uid === sender ? 'bg-lime-300' : 'bg-gray-200'}`}>
       <div className='flex justify-start space-x-2'>
         <div>
               <img className='rounded-full w-[3vh]' src={sender_data.picture}></img>

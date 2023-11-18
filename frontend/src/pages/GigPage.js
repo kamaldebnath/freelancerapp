@@ -98,7 +98,7 @@ export default function GigPage() {
                                             <span>rupees</span>
                                         </div>
                                     </div>
-                                    <button className='bg-black text-white font-semibold px-5 py-2 rounded-lg' onClick={() => setopenorder(true)}>Place Order</button>
+                                    <button className='bg-black text-white font-semibold px-5 py-2 rounded-lg' onClick={() => setTimeout(()=>{setopenorder(true)},400)}>Place Order</button>
                                 </div>
                             </div>
                         </div>

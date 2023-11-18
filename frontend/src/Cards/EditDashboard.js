@@ -29,13 +29,13 @@ function EditDashboard({ user, uid, about, displayName,age,gender,github,linkedi
     }
     return (
         <div className=''>
-            <form className='flex flex-col gap-y-4' onSubmit={updateUserData}>
+            <form className='flex flex-col gap-y-2' onSubmit={updateUserData}>
                 <div className='grid grid-cols-1 md:grid-cols-3 gap-5'>
                     <label className='flex flex-col'>
                         <span className='font-semibold'>Display name</span>
                     </label>
                     <div className='col-span-2'>
-                        <textarea className='resize-none p-2 w-[35vh] outline-none' defaultValue={displayName} value={newName} onChange={(e) => setNewName(e.target.value)}></textarea>
+                        <textarea className='resize-none p-2 w-[35vh] outline-none bg-gray-100' defaultValue={displayName} value={newName} onChange={(e) => setNewName(e.target.value)}></textarea>
                     </div>
                 </div>
 
@@ -44,7 +44,7 @@ function EditDashboard({ user, uid, about, displayName,age,gender,github,linkedi
                         <span className='font-semibold'>About me</span>
                     </label>
                     <div className='col-span-2'>
-                        <textarea className='resize-none p-2 w-[35vh] h-[40vh] outline-none' value={newAbout} defaultValue={about} onChange={(e) => setNewAbout(e.target.value)}></textarea>
+                        <textarea className='resize-none p-2 w-[35vh] h-[30vh] outline-none bg-gray-100' value={newAbout} defaultValue={about} onChange={(e) => setNewAbout(e.target.value)}></textarea>
                     </div>
                 </div>
 
@@ -53,7 +53,7 @@ function EditDashboard({ user, uid, about, displayName,age,gender,github,linkedi
                         <span className='font-semibold'>Age</span>
                     </label>
                     <div className='col-span-2'>
-                        <textarea className='resize-none p-2 w-[35vh] outline-none' defaultValue={age} value={newAge} onChange={(e) => setAge(e.target.value)}></textarea>
+                        <textarea className='resize-none p-2 w-[35vh] outline-none bg-gray-100' defaultValue={age} value={newAge} onChange={(e) => setAge(e.target.value)}></textarea>
                     </div>
                 </div>
 
@@ -62,7 +62,15 @@ function EditDashboard({ user, uid, about, displayName,age,gender,github,linkedi
                         <span className='font-semibold'>Gender</span>
                     </label>
                     <div className='col-span-2'>
-                        <textarea className='resize-none p-2 w-[35vh] outline-none' defaultValue={gender} value={newGender} onChange={(e) => setGender(e.target.value)}></textarea>
+
+                        <select className='' value={newGender} onChange={(e) => setGender(e.target.value)}>
+                            <option value={''}>Select</option>
+                            <option value={'male'}>Male</option>
+                            <option value={'female'}>Female</option>
+                        </select>
+                        
+
+                        {/* <textarea className='resize-none p-2 w-[35vh] outline-none bg-gray-100' defaultValue={gender} value={newGender} onChange={(e) => setGender(e.target.value)}></textarea> */}
                     </div>
                 </div>
 
@@ -72,7 +80,7 @@ function EditDashboard({ user, uid, about, displayName,age,gender,github,linkedi
                         <span className='text-xs'>(profile link)</span>
                     </label>
                     <div className='col-span-2'>
-                        <textarea className='resize-none p-2 w-[35vh] outline-none' defaultValue={github} value={newGithub} onChange={(e) => setGithub(e.target.value)}></textarea>
+                        <textarea className='resize-none p-2 w-[35vh] outline-none bg-gray-100' defaultValue={github} value={newGithub} onChange={(e) => setGithub(e.target.value)}></textarea>
                     </div>
                 </div>
 
@@ -82,7 +90,7 @@ function EditDashboard({ user, uid, about, displayName,age,gender,github,linkedi
                         <span className='text-xs'>(profile link)</span>
                     </label>
                     <div className='col-span-2'>
-                        <textarea className='resize-none p-2 w-[35vh] outline-none' defaultValue={linkedin} value={newLinkedin} onChange={(e) => setLinkedin(e.target.value)}></textarea>
+                        <textarea className='resize-none p-2 w-[35vh] outline-none bg-gray-100' defaultValue={linkedin} value={newLinkedin} onChange={(e) => setLinkedin(e.target.value)}></textarea>
                     </div>
                 </div>
 

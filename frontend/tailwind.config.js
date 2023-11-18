@@ -4,6 +4,10 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}"
   ],
   theme: {
+
+    fontFamily: {
+      display: ["Poppins", "sans-serif"],
+    },
     extend: {},
   },
   plugins: [],

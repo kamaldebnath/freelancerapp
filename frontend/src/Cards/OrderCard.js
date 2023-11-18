@@ -8,7 +8,7 @@ import PaidIcon from '@mui/icons-material/Paid';
 
 function OrderCard({ order_id, gigid, date, description, seller }) {
 
-    const backend_url='https://freelancerapp-wdtf.onrender.com';
+    const backend_url = 'https://freelancerapp-wdtf.onrender.com';
 
     const [gigdata, setgigdata] = useState([]);
     const [seller_info, set_seller_info] = useState([]);
@@ -39,26 +39,20 @@ function OrderCard({ order_id, gigid, date, description, seller }) {
     return (
 
         <div>
-            <div className='grid grid-cols-4 gap-5 p-1 border rounded-lg shadow-sm'>
+            <div className='grid grid-cols-1 sm:grid-cols-3 gap-5 p-1 border rounded-lg shadow-sm'>
                 <div className='flex flex-col justify-center overflow-hidden'>
                     <div className='flex justify-center items-center'>
                         <img className='rounded-full w-[5vh]' src={seller_info.picture}></img>
                     </div>
                     <div className='flex justify-center items-center'>
-                        <p>{seller_info.name}</p>
-                    </div>
-                </div>
-
-                <div className='flex justify-center items-center w-[30vh] overflow-hidden'>
-                    <div>
-                        <Link to={`/gigs/${gigid}`}><p className='font-semibold underline'>{gigdata.title}</p></Link>
+                        <a href={`/u/${seller}`}><p className='underline'>{seller_info.name}</p></a>
                     </div>
                 </div>
 
 
                 <div className='flex space-x-4 justify-center items-center overflow-hidden'>
                     <div>
-                        <button onClick={()=>{setShowDes(!showDes)}}><InfoIcon /></button>
+                        <button onClick={() => { setShowDes(!showDes) }}><InfoIcon /></button>
                     </div>
 
                     <div>
@@ -67,9 +61,10 @@ function OrderCard({ order_id, gigid, date, description, seller }) {
 
                 </div>
 
-                <div className='flex justify-center items-center space-x-4 overflow-hidden'>
-                    <button><PaidIcon /></button>
-                    <p>Payment status</p>
+                <div className='flex justify-center items-center w-[30vh] overflow-hidden'>
+                    <div>
+                        <Link to={`/gigs/${gigid}`}><p className='font-semibold underline'>{gigdata.title}</p></Link>
+                    </div>
                 </div>
 
             </div>

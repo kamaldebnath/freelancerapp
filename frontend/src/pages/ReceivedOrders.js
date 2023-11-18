@@ -29,7 +29,7 @@ export default function ReceivedOrders() {
                 </div>
             </div>
 
-            <div className='md:flex flex-col items-center space-y-5 py-4 hidden'>
+            <div className='flex flex-col items-center space-y-5 py-4'>
                 {receivedorders && (
                     receivedorders.map((items) =>
                     (

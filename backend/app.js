@@ -39,7 +39,11 @@ const UserSchema = mongoose.Schema({
   email: String,
   email_verified: Boolean,
   uid: String,
-  about: String
+  about: String,
+  gender:String,
+  age:Number,
+  gitgub:String,
+  linkedin:String,
 })
 
 const GigSchema = mongoose.Schema({

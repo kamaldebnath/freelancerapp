@@ -59,7 +59,7 @@ export default function Dashboard() {
                             user && (
                                 <div className={`${user.uid === uid.id ? '' : 'hidden'}`}>
                                     <div className='flex justify-center items-center bg-lime-400 p-2 rounded-xl'>
-                                        <button onClick={() => {setTimeout(()=>{setShowUpdate(true)},400)}} className='font-semibold'><span className='flex justify-center items-center'><EditIcon /> Edit bio</span></button>
+                                        <button onClick={() => {setTimeout(()=>{setShowUpdate(true)},400)}} className='font-semibold'><span className='flex justify-center items-center'><EditIcon /> Edit profile</span></button>
                                     </div>
                                 </div>
                             )
@@ -76,16 +76,17 @@ export default function Dashboard() {
                             <span>{about}</span>
                         </div>
 
-                        <div className={`${showUpdate ? '' : 'hidden'} flex flex-col gap-y-3 p-2 fixed inset-0 bg-lime-200 z-10`}>
+                        <div className={`${showUpdate ? '' : 'hidden'} flex flex-col justify-center items-center gap-y-3 p-2 fixed inset-0 bg-lime-200 z-10`}>
                             <div>
                                 <EditDashboard
                                     user={user}
                                     uid={uid}
                                     about={about}
+                                    displayName={displayName}
                                 />
                             </div>
 
-                            <div>
+                            <div className=''>
                                 <button className='font-semibold border rounded-lg p-2 bg-red-400' onClick={() => setShowUpdate(false)}>Cancel</button>
                             </div>
                         </div>

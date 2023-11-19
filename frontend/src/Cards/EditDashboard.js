@@ -53,7 +53,7 @@ function EditDashboard({ user, uid, about, displayName,age,gender,github,linkedi
                         <span className='font-semibold'>Age</span>
                     </label>
                     <div className='col-span-2'>
-                        <textarea className='resize-none p-2 w-[35vh] outline-none bg-gray-100' defaultValue={age} value={newAge} onChange={(e) => setAge(e.target.value)}></textarea>
+                        <input className='resize-none p-2 w-[35vh] outline-none bg-gray-100' type='number' min={'1'} placeholder={age} value={newAge} onChange={(e) => setAge(e.target.value)}></input>
                     </div>
                 </div>
 
@@ -69,8 +69,6 @@ function EditDashboard({ user, uid, about, displayName,age,gender,github,linkedi
                             <option value={'female'}>Female</option>
                         </select>
                         
-
-                        {/* <textarea className='resize-none p-2 w-[35vh] outline-none bg-gray-100' defaultValue={gender} value={newGender} onChange={(e) => setGender(e.target.value)}></textarea> */}
                     </div>
                 </div>
 

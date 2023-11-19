@@ -118,7 +118,7 @@ export default function Dashboard() {
                             </div>
 
                             <div className=''>
-                                <button className='font-semibold border rounded-lg p-2 bg-red-400' onClick={() => setShowUpdate(false)}>Cancel</button>
+                                <button className='font-semibold rounded-lg p-2 bg-lime-400 border-2 border-black' onClick={() => setShowUpdate(false)}>Cancel</button>
                             </div>
                         </div>
 
@@ -145,7 +145,11 @@ export default function Dashboard() {
 
             </div>
 
-            <div className='flex flex-col justify-center items-center'>
+            <div className='flex flex-col justify-center items-center my-9'>
+
+                <div>
+                    <p className='text-3xl font-display font-semibold'>My <span className='text-lime-400'>gigs</span></p>
+                </div>
 
                 <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3'>
                     {mygigs && (

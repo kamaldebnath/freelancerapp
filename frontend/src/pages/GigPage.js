@@ -22,27 +22,29 @@ export default function GigPage() {
     async function getdata() {
         axios.get(`${backend_url}/gigsbyid/${gigid}`).then((e) => {
             setgiginfo(e.data[0]);
+        }).then(()=>{
+            if (giginfo.seller_uid) {
+                axios.get(`${backend_url}/userdata/${giginfo.seller_uid}`).then((e) => {
+                    set_seller_info(e.data);
+                })
+            }
         })
 
     }
 
     useEffect(() => {
-        setLoading(true);
         getdata();
-        if (giginfo.seller_uid) {
-            axios.get(`${backend_url}/userdata/${giginfo.seller_uid}`).then((e) => {
-                set_seller_info(e.data);
-            })
-        }
+    })
+
+    useEffect(()=>{
+        setLoading(true);
         setTimeout(()=>{
             setLoading(false)
-        },2000);
-
-
-    }, [])
+        },1000)
+    },[])
 
     return (
-        <div>
+        <div className='font-display'>
             {isLoading && (
                 <div className='flex h-screen w-screen justify-center items-center'>
                     <ClipLoader
@@ -67,7 +69,7 @@ export default function GigPage() {
 
                                     <div className='flex items-center space-x-3'>
                                         <div>
-                                            <Link to={`/u/${giginfo.seller_uid}`}><img className='rounded-full w-10' src={seller_info.picture}></img></Link>
+                                            <Link to={`/u/${giginfo.seller_uid}`}><img className='rounded-full w-14 border-2 border-black' src={seller_info.picture}></img></Link>
                                         </div>
                                         <div>
                                             <Link to={`/u/${giginfo.seller_uid}`}><p className='hover:underline'>{seller_info.name}</p></Link>

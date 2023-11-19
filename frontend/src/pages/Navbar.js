@@ -4,12 +4,15 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../Firebase';
 import { signOut } from 'firebase/auth';
 import { motion } from 'framer-motion'
-
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import { Opacity } from '@mui/icons-material';
+import CloseIcon from '@mui/icons-material/Close';
 
 export default function Navbar() {
     const backend_url = 'https://freelancerapp-wdtf.onrender.com';
 
     const [user, loading] = useAuthState(auth);
+    const [showMenu, setMenu] = useState(false);
     const navigate = useNavigate();
 
     function logout() {
@@ -26,7 +29,7 @@ export default function Navbar() {
 
     return (
 
-        <div className='h-15 bg-lime-50 flex justify-around items-center p-4'>
+        <div className='h-15 bg-lime-50 flex justify-around items-center p-4 font-display'>
 
             <div className='text-2xl font-semibold transition duration-500 hover:scale-105'>
                 <a href='/'>Freelancer</a>
@@ -41,7 +44,7 @@ export default function Navbar() {
             {user && (
                 <div className='flex items-center space-x-9'>
 
-                    <div className='scale-150 flex'>
+                    <div className='scale-150  hidden md:flex'>
 
                         <a href={`/u/${user.uid}`}><img className='w-[4vh] rounded-full border-2 border-lime-400'
                             src={user.photoURL}></img></a>
@@ -49,6 +52,26 @@ export default function Navbar() {
                     </div>
 
                     <button className='bg-lime-400 px-3 py-2 border-2 border-black hidden md:flex font-semibold rounded-full' onClick={logout}>log out</button>
+
+                    <div className='md:hidden'>
+                        <li className='list-none'><button onClick={() => setMenu(!showMenu)}>{!showMenu ? <MoreVertIcon /> : <CloseIcon />}</button>
+
+                            <motion.ul className={`bg-lime-300 fixed w-full right-0 z-10 p-2 ${showMenu ? '' : 'hidden'}`} onClick={() => setMenu(true)}
+                                initial={{ opacity: 0, x: "-100%" }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                exit={{ opacity: 0, x: "100%" }}
+                                transition={{ delay: 0.1 }}
+                            >
+                                <li className=''><a href={`/u/${user.uid}`}>Profile</a></li>
+                                <div className='flex flex-col'>
+                                    <Link to={'/orders'} className=''>My Orders</Link>
+                                    <Link to={'/ordersreceived'} className=''>Orders Received</Link>
+                                </div>
+                                <button className='' onClick={logout}>Log out</button>
+                            </motion.ul>
+                        </li>
+                    </div>
+
                 </div>
             )}
 

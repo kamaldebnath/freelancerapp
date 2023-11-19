@@ -7,7 +7,7 @@ export default function GigCard({ gigid, seller_uid, title, description, deadlin
     return (
         <div className='p-4'>
             <a href={`/gigs/${gigid}`}>
-                <div className='h-[35vh] flex flex-col gap-y-4 w-[30vh] bg-gray-100 hover:cursor-pointer transition duration-500 hover:scale-105 rounded-lg p-2 overflow-hidden shadow shadow-black'>
+                <div className='h-[35vh] flex flex-col gap-y-4 w-[30vh] bg-gray-100 hover:cursor-pointer transition duration-500 hover:scale-105 rounded-lg p-2 overflow-hidden shadow border-2 border-black'>
                     
                     <div className=''>
                         <img className='rounded-lg w-[30vh] h-[20vh] object-cover' src={thumbnail}></img>

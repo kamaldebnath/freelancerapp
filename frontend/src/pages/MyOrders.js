@@ -7,24 +7,31 @@ import { auth } from '../Firebase';
 
 export default function MyOrders() {
 
-    const backend_url='https://freelancerapp-wdtf.onrender.com';
-    
-    const[user,loading]=useAuthState(auth);
+    const backend_url = 'https://freelancerapp-wdtf.onrender.com';
+
+    const [user, loading] = useAuthState(auth);
     const [myorders, setmyorders] = useState();
 
     useEffect(() => {
-        axios.get(`${backend_url}/myorders/${user.accessToken}`).then((e) => {
-            setmyorders(e.data);
-        })
+
+        try {
+            axios.get(`${backend_url}/myorders/${user.accessToken}`).then((e) => {
+                setmyorders(e.data);
+            })
+        } catch (error) {
+            console.log(error);
+        }
+
+
     })
 
     return (
         <div>
-            <Navbar/>
+            <Navbar />
             <div className='bg-slate-100 flex justify-around items-center h-[10vh]'>
                 <span className='text-4xl text-gray-600'>My orders</span>
                 <div>
-                    
+
                 </div>
             </div>
 

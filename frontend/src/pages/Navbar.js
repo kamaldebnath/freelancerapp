@@ -56,7 +56,7 @@ export default function Navbar() {
                     <div className='md:hidden'>
                         <li className='list-none'><button onClick={() => setMenu(!showMenu)}>{!showMenu ? <MoreVertIcon /> : <CloseIcon />}</button>
 
-                            <motion.ul className={`bg-lime-300 fixed w-full right-0 z-10 p-2 ${showMenu ? '' : 'hidden'}`} onClick={() => setMenu(true)}
+                            <motion.ul className={`bg-lime-100 fixed w-full right-0 z-10 p-2 ${showMenu ? '' : 'hidden'}`} onClick={() => setMenu(true)}
                                 initial={{ opacity: 0, x: "-100%" }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 exit={{ opacity: 0, x: "100%" }}
@@ -64,10 +64,14 @@ export default function Navbar() {
                             >
                                 <li className=''><a href={`/u/${user.uid}`}>Profile</a></li>
                                 <div className='flex flex-col'>
-                                    <Link to={'/orders'} className=''>My Orders</Link>
-                                    <Link to={'/ordersreceived'} className=''>Orders Received</Link>
+                                    <Link className='' to={'/orders'} >My Orders</Link>
+                                    <Link className='' to={'/ordersreceived'}>Orders Received</Link>
                                 </div>
-                                <button className='' onClick={logout}>Log out</button>
+
+                                <div className=''>
+                                    <button className='' onClick={logout}>Log out</button>
+                                </div>
+
                             </motion.ul>
                         </li>
                     </div>

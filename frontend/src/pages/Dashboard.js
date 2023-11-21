@@ -152,6 +152,7 @@ export default function Dashboard() {
                 </div>
 
                 <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3'>
+                    
                     {mygigs && (
                         mygigs.map((items) =>
                         (

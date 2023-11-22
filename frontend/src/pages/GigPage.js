@@ -63,10 +63,10 @@ export default function GigPage() {
             {!isLoading && (
                 <div>
                     <Navbar />
-                    <div className='flex justify-center'>
-                        <div className='w-2/3 grid grid-cols-1 md:grid-cols-2 gap-y-5 md:gap-y-0'>
+                    <div className='flex justify-center my-3'>
+                        <div className='w-2/3 grid grid-cols-1 md:grid-cols-2 gap-y-5 gap-x-4 md:gap-y-0'>
                             <div className=''>
-                                <div className='flex flex-col space-y-10'>
+                                <div className='flex flex-col space-y-10 overflow-hidden'>
                                     <div>
                                         <p className='text-3xl font-semibold'>{giginfo.title}</p>
                                     </div>
@@ -84,15 +84,15 @@ export default function GigPage() {
                                         <img className='w-[70vh]' src={giginfo.thumbnail}></img>
                                     </div>
 
-                                    <div>
-                                        <p>{giginfo.description}</p>
+                                    <div className='whitespace-pre-line'>
+                                        <span className='break-words inline-block'>{giginfo.description}</span>
                                     </div>
                                 </div>
                             </div>
 
                             <div>
-                                <div className='flex flex-col justify-center gap-y-5 items-center h-[20vh] border'>
-                                    <div className='flex flex-col md:flex-row gap-3'>
+                                <div className='flex flex-col justify-center gap-y-5 items-center h-[20vh] bg-lime-200 shadow shadow-black my-5 rounded-lg'>
+                                    <div className='flex flex-col gap-3'>
                                         <div className='flex justify-center items-center space-x-1 font-semibold '>
                                             <span><AccessTimeIcon /></span>
                                             <span>{giginfo.deadline}</span>

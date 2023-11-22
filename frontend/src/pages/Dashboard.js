@@ -131,7 +131,7 @@ export default function Dashboard() {
                         <div className={`${user.uid === uid.id ? '' : 'hidden'}`}>
                             <div className='flex gap-5'>
                                 <div className='bg-black text-white p-2 rounded-lg font-semibold'>
-                                    <Link to={'/orders'}>myorders</Link>
+                                    <Link to={'/orders'}>my orders</Link>
                                 </div>
                                 <div className='bg-black text-white p-2 rounded-lg font-semibold'>
                                     <Link to={'/ordersreceived'}>orders received</Link>

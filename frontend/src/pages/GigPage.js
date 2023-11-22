@@ -22,7 +22,7 @@ export default function GigPage() {
     async function getdata() {
         axios.get(`${backend_url}/gigsbyid/${gigid}`).then((e) => {
             setgiginfo(e.data[0]);
-        }).then(()=>{
+        }).then(() => {
             if (giginfo.seller_uid) {
                 axios.get(`${backend_url}/userdata/${giginfo.seller_uid}`).then((e) => {
                     set_seller_info(e.data);
@@ -33,15 +33,19 @@ export default function GigPage() {
     }
 
     useEffect(() => {
-        getdata();
+        try {
+            getdata();
+        } catch (error) {
+            console.log(error);
+        }
     })
 
-    useEffect(()=>{
+    useEffect(() => {
         setLoading(true);
-        setTimeout(()=>{
+        setTimeout(() => {
             setLoading(false)
-        },1000)
-    },[])
+        }, 1000)
+    }, [])
 
     return (
         <div className='font-display'>
@@ -100,7 +104,7 @@ export default function GigPage() {
                                             <span>rupees</span>
                                         </div>
                                     </div>
-                                    <button className='bg-black text-white font-semibold px-5 py-2 rounded-lg' onClick={() => setTimeout(()=>{setopenorder(true)},400)}>Place Order</button>
+                                    <button className='bg-black text-white font-semibold px-5 py-2 rounded-lg' onClick={() => setTimeout(() => { setopenorder(true) }, 400)}>Place Order</button>
                                 </div>
                             </div>
                         </div>

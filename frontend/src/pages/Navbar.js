@@ -64,7 +64,7 @@ export default function Navbar() {
                             >
                                 <li className=''><a href={`/u/${user.uid}`}>Profile</a></li>
                                 <div className='flex flex-col'>
-                                    <Link className='' to={'/orders'} >My Orders</Link>
+                                    <Link className='' to={'/orders'} >My \n Orders</Link>
                                     <Link className='' to={'/ordersreceived'}>Orders Received</Link>
                                 </div>
 

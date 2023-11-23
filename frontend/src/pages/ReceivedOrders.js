@@ -30,7 +30,7 @@ export default function ReceivedOrders() {
             <Navbar />
 
             <div className='bg-slate-100 flex justify-around items-center h-[10vh]'>
-                <span className='text-4xl text-gray-600'>My orders</span>
+                <span className='text-4xl text-gray-600'>Orders received</span>
                 <div>
 
                 </div>

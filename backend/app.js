@@ -198,7 +198,7 @@ app.get('/myorders/:token', (req, res) => {
 app.get('/receivedorders/:token', (req, res) => {
   admin.auth().verifyIdToken(req.params.token).then((response) => {
     if (response.uid) {
-      OrderModel.find({ seller: response.uid }).then((e) => { res.json(e) });
+      OrderModel.find({ seller: response.uid }).sort({date : -1}).then((e) => { res.json(e) });
     }
   })
 })
